@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { appConfig } from '../app.config';
+import * as jwt from 'jsonwebtoken';
 
 @Injectable()
 export class AuthLoginService {
@@ -16,11 +17,14 @@ export class AuthLoginService {
         console.log('login has fired');
 
         console.log(user);
-        let token = user.json() &&  user.json().token;
+        var parted = user.token.split(' ');
+        let currentUser = jwt.decode(parted[1],appConfig.secret);
+        // let token = user.json() &&  user.json().token;
         // login successful if there's a jwt token in the response
-        if (token) {
+        if (user) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('currentUser', JSON.stringify(currentUser));
+          localStorage.setItem('token', JSON.stringify(user));
         }
         console.log('usertoken is');
         console.log(user.token);
