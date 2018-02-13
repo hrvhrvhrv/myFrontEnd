@@ -4,10 +4,19 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { appConfig } from '../app.config';
 import * as jwt from 'jsonwebtoken';
+// added tues 13th
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {User} from "../models/user";
+
 
 @Injectable()
 export class AuthLoginService {
   public token: string;
+  private LoggedIn = new BehaviorSubject<boolean>(false);
+  currentLoggedIn = this.LoggedIn.asObservable();
+  private currentUser = new BehaviorSubject<User>(null);
+  currentUserObserver = this.currentUser.asObservable();
+
 
   constructor(private http: HttpClient) { }
 
@@ -17,14 +26,16 @@ export class AuthLoginService {
         console.log('login has fired');
 
         console.log(user);
-        var parted = user.token.split(' ');
-        let currentUser = jwt.decode(parted[1],appConfig.secret);
+        const parted = user.token.split(' ');
+        const currentUserReturned = jwt.decode(parted[1],appConfig.secret);
         // let token = user.json() &&  user.json().token;
         // login successful if there's a jwt token in the response
         if (user) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(currentUser));
+          localStorage.setItem('currentUser', JSON.stringify(currentUserReturned));
           localStorage.setItem('token', JSON.stringify(user));
+          this.changeLoginStatus(true);
+          this.changeCurrentUserStatus(currentUserReturned);
         }
         console.log('usertoken is');
         console.log(user.token);
@@ -40,8 +51,21 @@ export class AuthLoginService {
 
   logout() {
     // remove user from local storage to log user out
+    localStorage.removeItem('token');
     localStorage.removeItem('currentUser');
+    this.changeLoginStatus(false);
+    this.changeCurrentUserStatus(null);
   }
 
+
+  //  function for observables
+  changeLoginStatus(nextLoginStatus: boolean){
+    this.LoggedIn.next(nextLoginStatus);
+    console.log('Current Project Type' + nextLoginStatus);
+  }
+
+  changeCurrentUserStatus(nextCurrentUser:User) {
+    this.currentUser.next(nextCurrentUser);
+  }
 
 }

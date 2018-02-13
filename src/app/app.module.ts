@@ -15,6 +15,11 @@ import { HttpClientModule} from '@angular/common/http';
 import { AlertComponent } from './directives/alert/alert.component';
 import {ErrorInterceptorProvider} from './services/helper/error.interceptor';
 import {JwtInterceptorProvider} from './services/helper/jwt.interceptor';
+import { MenuComponent } from './menu/menu.component';
+//  import for material
+import {MatMenuModule, MatCommonModule, MatButtonModule, MatCardModule, MatToolbarModule, MatIconModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 
 @NgModule({
   declarations: [
@@ -22,13 +27,21 @@ import {JwtInterceptorProvider} from './services/helper/jwt.interceptor';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    AlertComponent
+    AlertComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRouting,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
+    MatCommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
+    BrowserAnimationsModule
 
   ],//our service providers
   providers: [AuthRegisterService,
