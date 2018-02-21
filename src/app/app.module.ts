@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 // import our services
 import {AuthLoginService} from './services/auth-login.service';
+import { ReviewService} from "./services/review.service";
 import {AlertService, AuthRegisterService} from './services/auth-register.service';
 import { AppRouting } from './app.routing';
 import {AuthGuard} from './guards/auth.guard';
@@ -17,9 +18,29 @@ import {ErrorInterceptorProvider} from './services/helper/error.interceptor';
 import {JwtInterceptorProvider} from './services/helper/jwt.interceptor';
 import { MenuComponent } from './menu/menu.component';
 //  import for material
-import {MatMenuModule, MatCommonModule, MatButtonModule, MatCardModule, MatToolbarModule, MatIconModule} from "@angular/material";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {
+  MatMenuModule, MatCommonModule, MatButtonModule, MatCardModule, MatToolbarModule,
+  MatFormFieldModule, MatDatepickerModule, MatInputModule, MatSidenavModule, MatAutocompleteModule, MatCheckboxModule,
+  MatGridListModule, MatDialogModule, MatLineModule, MatChipsModule, MatExpansionModule, MatProgressBarModule,
+  MatRadioModule, MatNativeDateModule
+} from "@angular/material";
+import {MatIconModule} from '@angular/material/icon';
 
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { CreateReviewComponent } from './create-review/create-review.component';
+import { EditReviewComponent } from './edit-review/edit-review.component';
+import { MyReviewsComponent } from './my-reviews/my-reviews.component';
+import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.component';
+import { CreateAdminComponent } from './create-admin/create-admin.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { WhereWeAreComponent } from './where-we-are/where-we-are.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+
+import { NgxEditorModule} from "ngx-editor";
+import { AngularFontAwesomeModule} from "angular-font-awesome";
+import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +49,18 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     LoginComponent,
     HomeComponent,
     AlertComponent,
-    MenuComponent
+    MenuComponent,
+    CreateReviewComponent,
+    EditReviewComponent,
+    MyReviewsComponent,
+    EditUserProfileComponent,
+    CreateAdminComponent,
+    UserManagementComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    WhereWeAreComponent,
+    AdminDashboardComponent,
+    ViewReviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,13 +73,32 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    BrowserAnimationsModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatAutocompleteModule,
+    MatCheckboxModule,
+    MatGridListModule,
+    MatDialogModule,
+    MatLineModule,
+    MatChipsModule,
+    MatExpansionModule,
+    MatProgressBarModule,
+    MatRadioModule,
+    NgxEditorModule,
+    BrowserAnimationsModule,
+    AngularFontAwesomeModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+
 
   ],//our service providers
   providers: [AuthRegisterService,
               AuthLoginService,
               AuthGuard,
               AlertService,
+              ReviewService,
               JwtInterceptorProvider,
               ErrorInterceptorProvider
 

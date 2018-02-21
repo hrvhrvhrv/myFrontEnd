@@ -14,7 +14,9 @@ export class AuthLoginService {
   public token: string;
   private LoggedIn = new BehaviorSubject<boolean>(false);
   currentLoggedIn = this.LoggedIn.asObservable();
-  private currentUser = new BehaviorSubject<User>(null);
+  private emptyUser = new User;
+
+  private currentUser = new BehaviorSubject<User>(this.emptyUser);
   currentUserObserver = this.currentUser.asObservable();
 
 
@@ -54,7 +56,7 @@ export class AuthLoginService {
     localStorage.removeItem('token');
     localStorage.removeItem('currentUser');
     this.changeLoginStatus(false);
-    this.changeCurrentUserStatus(null);
+    this.changeCurrentUserStatus(this.emptyUser);
   }
 
 
