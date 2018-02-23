@@ -5,12 +5,14 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
+import { MatStepperModule} from "@angular/material";
 // import our services
 import {AuthLoginService} from './services/auth-login.service';
 import { ReviewService} from "./services/review.service";
 import {AlertService, AuthRegisterService} from './services/auth-register.service';
 import { AppRouting } from './app.routing';
 import {AuthGuard} from './guards/auth.guard';
+import {AdminGuard} from "./guards/admin.guard";
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule} from '@angular/common/http';
 import { AlertComponent } from './directives/alert/alert.component';
@@ -22,7 +24,7 @@ import {
   MatMenuModule, MatCommonModule, MatButtonModule, MatCardModule, MatToolbarModule,
   MatFormFieldModule, MatDatepickerModule, MatInputModule, MatSidenavModule, MatAutocompleteModule, MatCheckboxModule,
   MatGridListModule, MatDialogModule, MatLineModule, MatChipsModule, MatExpansionModule, MatProgressBarModule,
-  MatRadioModule, MatNativeDateModule
+  MatRadioModule, MatNativeDateModule, MatListModule
 } from "@angular/material";
 import {MatIconModule} from '@angular/material/icon';
 
@@ -41,6 +43,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { NgxEditorModule} from "ngx-editor";
 import { AngularFontAwesomeModule} from "angular-font-awesome";
 import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
+import { ViewAnnouncementComponent } from './view-announcement/view-announcement.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,8 @@ import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
     ContactUsComponent,
     WhereWeAreComponent,
     AdminDashboardComponent,
-    ViewReviewsComponent
+    ViewReviewsComponent,
+    ViewAnnouncementComponent
   ],
   imports: [
     BrowserModule,
@@ -86,17 +90,20 @@ import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
     MatExpansionModule,
     MatProgressBarModule,
     MatRadioModule,
+    MatListModule,
     NgxEditorModule,
     BrowserAnimationsModule,
     AngularFontAwesomeModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatStepperModule
 
 
   ],//our service providers
   providers: [AuthRegisterService,
               AuthLoginService,
               AuthGuard,
+              AdminGuard,
               AlertService,
               ReviewService,
               JwtInterceptorProvider,

@@ -1,0 +1,24 @@
+.content-1, .content-2, .content-4 {
+  background: #fff;
+  padding-bottom: 0.1rem; }
+.content-1 .container, .content-2 .container, .content-4 .container {
+  margin: 5rem auto; }
+.content-1 .full-width, .content-2 .full-width, .content-4 .full-width {
+  width: 100%; }
+
+h2{
+  font-family: 'Contrail One', cursive;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+
+}
+
+.dark{
+  background: #5c6bc0;
+  color: white;
+}
+
+
+.comments{
+  background: RGBA(88, 90, 85, 0.20);
+}

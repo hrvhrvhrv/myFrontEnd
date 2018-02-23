@@ -1,0 +1,12 @@
+.topContainer{
+  min-height: 75vh;
+  padding-top: 30px;
+}
+
+
+.route-container {
+  position:relative;
+}
+.route-container>* {
+  display:block;
+}

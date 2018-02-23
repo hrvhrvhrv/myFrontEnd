@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthLoginService} from '../../services/auth-login.service';
 import { AlertService} from '../../services/auth-register.service';
+import {  validationMessage} from "../../models/validationMessage";
 
 @Component({
   moduleId: module.id,
@@ -32,9 +33,19 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.authenticationService.login(this.model.email, this.model.password)
       .subscribe(
+
+
         data => {
-          this.router.navigate([this.returnUrl]);
+          const returnedMessage = <validationMessage> data;
+          if (returnedMessage.success) {
+            this.alertService.success('Login successful', true);
+            this.router.navigate([this.returnUrl]);
+          } else {
+            this.alertService.error(data[0], data[1]);
+          }
         },
+
+
         error => {
           this.alertService.error(error);
           this.loading = false;

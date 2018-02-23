@@ -1,3 +1,60 @@
-<p>
-  my-reviews works!
-</p>
+<!--<mat-accordion >-->
+  <!--<div class="col-lg-6">-->
+    <!--<mat-expansion-panel>-->
+      <!--<mat-expansion-panel-header>-->
+        <!--<mat-panel-title>-->
+          <!--<h3>{{review.title}}</h3>-->
+        <!--</mat-panel-title>-->
+      <!--</mat-expansion-panel-header>-->
+      <!--<mat-card>-->
+        <!--<img md-card-image src="../../assets/chair.png" alt="Film Image" />-->
+        <!--<mat-card-title>-->
+          <!--Director: {{review.director}}<br/>-->
+          <!--Studio: {{review.studio}}<br/>-->
+          <!--Release date: {{review.year}}-->
+        <!--</mat-card-title>-->
+        <!--<mat-card-content>-->
+          <!--{{review.review}}-->
+
+        <!--</mat-card-content>-->
+        <!--<a *ngIf="currentUser.role=='editor' ||(currentUser.role=='creator' && currentUser._id == review.reviewer)"-->
+           <!--[routerLink]="['/editreview', review._id]" class="btn btn-success">EDIT</a>-->
+        <!--<button *ngIf="currentUser.role=='editor' ||(currentUser.role=='creator' && currentUser._id == review.reviewer)"-->
+                <!--class="btn btn-danger" type="button" (click)="deleteFilm(review._id)">DELETE</button>-->
+      <!--</mat-card>-->
+    <!--</mat-expansion-panel>-->
+  <!--</div>-->
+<!--</mat-accordion>-->
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Personal data
+      </mat-panel-title>
+      <mat-panel-description>
+        Type your name and age
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="First name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Age">
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Self aware panel
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>

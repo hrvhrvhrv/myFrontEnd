@@ -6,6 +6,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import {HomeComponent} from './home/home.component';
 import {AuthGuard} from './guards/auth.guard';
+import { AdminGuard} from "./guards/admin.guard";
 
 //  new components added 14/02/18
 import { CreateReviewComponent} from "./create-review/create-review.component";
@@ -18,84 +19,156 @@ import { AboutUsComponent} from "./about-us/about-us.component";
 import { ContactUsComponent} from "./contact-us/contact-us.component";
 import { WhereWeAreComponent} from "./where-we-are/where-we-are.component";
 import { AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
+import { ViewReviewsComponent} from "./view-reviews/view-reviews.component";
+import { ViewAnnouncementComponent} from "./view-announcement/view-announcement.component";
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard],
-
+  { path: '',
+    component: HomeComponent,
+    data: {
+      depth: 1
+    }
   },
   {
     path: 'login',
     component: LoginComponent,
-    data: { title: 'Log In' }
+    data: {
+      title: 'Log In',
+      depth: 4
+
+    }
   },
   {
     path: 'logout',
     component: LoginComponent,
-    data: { title: 'logout' }
+    data: {
+      title: 'logout',
+    depth: 3
+    }
   },
   {path: 'register',
     component: RegisterComponent,
-    data : {title : 'register'}
+    data : {
+    title : 'register',
+    depth: 1
+    }
 
   },
   {
+    path: 'viewreview',
+    component: ViewReviewsComponent,
+    data: {
+      title:'Views Review',
+      depth: 2
+    }
+
+  },{
     path: 'createreview',
     component: CreateReviewComponent,
-    data: {title:'Create Review'}
+    canActivate: [AuthGuard],
+
+    data: {
+      title:'Create Review',
+      depth: 3
+    }
 
   },
   {
     path: 'editreview',
     component: EditReviewComponent,
-    data: {title:'Edit Review'}
+    canActivate: [AuthGuard],
+    data: {
+      title:'Edit Review',
+      depth: 1
+    }
+
+  },
+  {
+    path: 'viewAnnouncement',
+    component: ViewAnnouncementComponent,
+    data: {
+      title:'Views Announcement',
+      depth: 3
+    }
 
   },
   {
     path: 'myreviews',
     component: MyReviewsComponent,
-    data: {title:'My Reviews'}
+    canActivate: [AuthGuard],
+    data: {
+      title:'My Reviews',
+      depth: 2
+    }
 
   },
   {
     path: 'myprofile',
     component: EditUserProfileComponent,
-    data: {title:'My Profile'}
+    canActivate: [AuthGuard],
+    data: {
+      title:'My Profile',
+      depth: 3
+    }
 
   },
   {
     path: 'createadmin',
     component: CreateAdminComponent,
-    data: {title:'Create Admin'}
+    canActivate: [AdminGuard],
+    data: {
+      title:'Create Admin',
+      depth: 1
+    }
 
   },
   {
     path: 'admindashboard',
     component: AdminDashboardComponent,
-    data: {title:'Admin dashboard'}
+    canActivate: [AuthGuard],
+    data: {
+      title:'Admin dashboard',
+      depth: 2
+    }
 
   },
   {
     path: 'usermanager',
     component: UserManagementComponent,
-    data: {title:'User Management'}
+    canActivate: [AuthGuard],
+    data: {
+      title:'User Management',
+      depth: 3
+    }
 
   },
   {
     path: 'aboutus',
     component: AboutUsComponent,
-    data: {title:'About Us'}
+    canActivate: [AuthGuard],
+    data: {
+      title:'About Us',
+      depth: 1
+    }
 
   },
   {
     path: 'contactus',
     component: ContactUsComponent,
-    data: {title:'Contact Us'}
+    canActivate: [AuthGuard],
+    data: {
+      title:'Contact Us',
+      depth: 2
+    }
 
   },
   {
     path: 'wheretofindus',
     component: WhereWeAreComponent,
-    data: {title:'Where to find us'}
+    data: {
+      title:'Where to find us',
+      depth: 3
+    }
 
   }
 

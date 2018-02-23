@@ -1,27 +1,60 @@
-<mat-accordion>
-  <div *ngFor ='let review of allReviews'>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <h3>{{review.title}}</h3>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <mat-card>
-        <img md-card-image [src]="review.img" alt="Film Image" />
-        <mat-card-title>
-          Director: {{review.director}}<br/>
-          Studio: {{review.studio}}<br/>
-          Release date: {{review.year}}
-        </mat-card-title>
-        <mat-card-content>
-          {{review.review}}
+<!--<mat-accordion>-->
+<!--<div *ngFor ='let review of allReviews'>-->
+<!--<mat-expansion-panel>-->
+<!--<mat-expansion-panel-header>-->
+<!--<mat-panel-title>-->
+<!--<h3>{{review.title}}</h3>-->
+<!--</mat-panel-title>-->
+<!--</mat-expansion-panel-header>-->
+<!--<mat-card>-->
+<!--<img md-card-image [src]="review.img" alt="Film Image" />-->
+<!--<mat-card-title>-->
+<!--Director: {{review.director}}<br/>-->
+<!--Studio: {{review.studio}}<br/>-->
+<!--Release date: {{review.year}}-->
+<!--</mat-card-title>-->
+<!--<mat-card-content>-->
+<!--{{review.review}}-->
 
-        </mat-card-content>
-        <a *ngIf="currentUser.role=='editor' ||(currentUser.role=='creator' && currentUser._id == review.reviewer)"
-           [routerLink]="['/editreview', review._id]" class="btn btn-success">EDIT</a>
-        <button *ngIf="currentUser.role=='editor' ||(currentUser.role=='creator' && currentUser._id == review.reviewer)"
-                class="btn btn-danger" type="button" (click)="deleteFilm(review._id)">DELETE</button>
-      </mat-card>
-    </mat-expansion-panel>
-  </div>
-</mat-accordion>
+<!--</mat-card-content>-->
+<!--<a *ngIf="currentUser.role=='editor' ||(currentUser.role=='creator' && currentUser._id == review.reviewer)"-->
+<!--[routerLink]="['/editreview', review._id]" class="btn btn-success">EDIT</a>-->
+<!--<button *ngIf="currentUser.role=='editor' ||(currentUser.role=='creator' && currentUser._id == review.reviewer)"-->
+<!--class="btn btn-danger" type="button" (click)="deleteFilm(review._id)">DELETE</button>-->
+<!--</mat-card>-->
+<!--</mat-expansion-panel>-->
+<!--</div>-->
+<!--</mat-accordion>-->
+
+
+  <h1 class="logo">The Local Theatre Reviews</h1>
+
+<mat-card >
+<mat-card class="example-card col-lg-12">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+    <mat-chip-list>
+      <mat-chip class="warn">Papadum</mat-chip>
+      <mat-chip class="primary">Naan</mat-chip>
+      <mat-chip class="accent">Dal</mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Comment</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+
+</mat-card>
+</mat-card>
+
+
