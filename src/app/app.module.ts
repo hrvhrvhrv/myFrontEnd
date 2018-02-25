@@ -96,7 +96,7 @@ import { ViewAnnouncementComponent } from './view-announcement/view-announcement
     AngularFontAwesomeModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatStepperModule
+    MatStepperModule,
 
 
   ],//our service providers

@@ -2,7 +2,7 @@
 
 
 
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 
 .footer-2 {
@@ -42,4 +42,43 @@ h1{
 h1, h2, h3,h4,h5, p{
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
+}
+
+.comments{
+  background: RGBA(211, 211, 211, 1.00);
+  border-top: 2px solid RGBA(128, 162, 167, 0.60) ;
+  border-bottom: 2px solid RGBA(128, 162, 167, 0.60) ;}
+
+.review_card{
+  /*border-bottom: 10px solid RGBA(128, 162, 167, 0.60) ;*/
+}
+
+.admin_toolbar{
+  background:   RGBA(244, 113, 127, 0.20);
+  border-top: 2px solid RGBA(128, 162, 167, 0.60) ;
+  border-bottom: 2px solid RGBA(128, 162, 167, 0.60) ;
+
+}
+
+.jumbotron{
+  /*background: linear-gradient(to bottom right, #4e54c8, #8f94fb); */
+
+}§
+
+.img_wrapper{
+
+  width: 400px;
+  height: 600px;
+  overflow: hidden;
+  Border: 1px solid gray;
+
+
+}
+
+.review_card{
+  margin-top: 30px;
+}
+
+footer{
+  margin-top: 60px;
 }

@@ -1,4 +1,5 @@
-<div class="col-md-6 col-md-offset
+<mat-card>
+<div class="col-sm-6 col-sm-offset
       <mat-datepicker #picker></mat-datepicker>-3">
   <h2>Login</h2>
   <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
@@ -13,8 +14,9 @@
       <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
     </div>
     <div class="form-group">
-      <button [disabled]="loading" class="btn btn-primary">Login</button>
-      <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+      <button [disabled]="loading" mat-raised-button color="accent">Login</button>
+      <button [routerLink]="['/register']" mat-button color="basic" >Register</button>
     </div>
   </form>
 </div>
+</mat-card>

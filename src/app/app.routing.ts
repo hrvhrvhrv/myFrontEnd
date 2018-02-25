@@ -145,7 +145,7 @@ const appRoutes: Routes = [
   {
     path: 'aboutus',
     component: AboutUsComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     data: {
       title:'About Us',
       depth: 1
@@ -155,7 +155,7 @@ const appRoutes: Routes = [
   {
     path: 'contactus',
     component: ContactUsComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     data: {
       title:'Contact Us',
       depth: 2

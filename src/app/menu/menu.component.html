@@ -9,7 +9,7 @@
 
  </div>
     </div>
-    <div class="row col-md-auto">
+    <div class="row col-sm-auto">
       <button *ngIf="!LoggedIn" mat-button [routerLink]="['viewreview']" routerLinkActive="active">Reviews</button>
       <button *ngIf="!LoggedIn" mat-button [routerLink]="['viewAnnouncement']" routerLinkActive="active">Anouncements</button>
       <!--<button mat-button [mat-menu-trigger-for]="aboutMenu">About Us<i class="material-icons">&#xE5C5;</i></button>-->
@@ -35,7 +35,7 @@
         </button>
       </div>
     </div>
-    <div class="col col-lg-1">
+    <div class="col col-sm-1">
       <button *ngIf="!LoggedIn" class="btn-login" mat-raised-button color="accent" [routerLink]="['login']" routerLinkActive="active">login</button>
       <button *ngIf="LoggedIn" class="btn-login" mat-raised-button color="accent" [routerLink]="['logout']" routerLinkActive="active">logout</button>
     </div>

@@ -3,7 +3,7 @@
 
 <div class="container topContainer route-container" [@routeAnimation]="getDepth(myOutlet)">
 
-    <router-outlet #myOutlet="outlet"></router-outlet>
+    <router-outlet #myOutlet="outlet" (activate)="onActivate($event)"></router-outlet>
 
 </div>
 
