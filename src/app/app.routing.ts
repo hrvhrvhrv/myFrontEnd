@@ -21,6 +21,7 @@ import { WhereWeAreComponent} from "./where-we-are/where-we-are.component";
 import { AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
 import { ViewReviewsComponent} from "./view-reviews/view-reviews.component";
 import { ViewAnnouncementComponent} from "./view-announcement/view-announcement.component";
+import { CreateAnnouncementComponent} from "./create-announcement/create-announcement.component";
 
 const appRoutes: Routes = [
   { path: '',
@@ -93,6 +94,15 @@ const appRoutes: Routes = [
 
   },
   {
+    path: 'createAnnouncement',
+    component: CreateAnnouncementComponent,
+    data: {
+      title:'Views Announcement',
+      depth: 3
+    }
+
+  },
+  {
     path: 'myreviews',
     component: MyReviewsComponent,
     canActivate: [AuthGuard],
@@ -138,7 +148,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
     data: {
       title:'User Management',
-      depth: 3
+      depth: 2
     }
 
   },
@@ -159,15 +169,6 @@ const appRoutes: Routes = [
     data: {
       title:'Contact Us',
       depth: 2
-    }
-
-  },
-  {
-    path: 'wheretofindus',
-    component: WhereWeAreComponent,
-    data: {
-      title:'Where to find us',
-      depth: 3
     }
 
   }
