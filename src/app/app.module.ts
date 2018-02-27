@@ -44,6 +44,7 @@ import { NgxEditorModule} from "ngx-editor";
 import { AngularFontAwesomeModule} from "angular-font-awesome";
 import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
 import { ViewAnnouncementComponent } from './view-announcement/view-announcement.component';
+import { CreateAnnouncementComponent } from './create-announcement/create-announcement.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { ViewAnnouncementComponent } from './view-announcement/view-announcement
     WhereWeAreComponent,
     AdminDashboardComponent,
     ViewReviewsComponent,
-    ViewAnnouncementComponent
+    ViewAnnouncementComponent,
+    CreateAnnouncementComponent
   ],
   imports: [
     BrowserModule,

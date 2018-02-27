@@ -1,31 +1,33 @@
 <header class="bar">
   <mat-toolbar color="primary" class="row ">
 
+    <!--  Logo  Start-->
     <div class="col offset-md-1">
-<div class="row">
-  <!--<i class="material-icons">movie</i>-->
+      <div class="row">
+        <!--<i class="material-icons">movie</i>-->
 
-  <a [routerLink]="['']" class="btn btn-link" routerLinkActive="active"> <h1> The Local Theatre </h1></a>
+        <a [routerLink]="['']" class="btn btn-link" routerLinkActive="active"><h1> The Local Theatre </h1></a>
 
- </div>
+      </div>
     </div>
+    <!--  Logo  End-->
+
+    <!--  Menu Buttons  Start-->
     <div class="row col-sm-auto">
       <button *ngIf="!LoggedIn" mat-button [routerLink]="['viewreview']" routerLinkActive="active">Reviews</button>
-      <button *ngIf="!LoggedIn" mat-button [routerLink]="['viewAnnouncement']" routerLinkActive="active">Anouncements</button>
+      <button *ngIf="!LoggedIn" mat-button [routerLink]="['viewAnnouncement']" routerLinkActive="active">Anouncements
+      </button>
       <!--<button mat-button [mat-menu-trigger-for]="aboutMenu">About Us<i class="material-icons">&#xE5C5;</i></button>-->
       <!--<button mat-button [mat-menu-trigger-for]="login">login<i class="material-icons">&#xE5C5;</i></button>-->
 
       <div *ngIf="LoggedIn">
 
-        <button *ngIf="currentUser.role === 'creator' || currentUser.role === 'editor'" mat-button
-                [mat-menu-trigger-for]="createMenu">
-          <!--<i class="fa fa-address-book"></i>-->
+        <button mat-button [mat-menu-trigger-for]="reviews">
           Reviews
           <i class="material-icons">&#xE5C5;</i>
         </button>
-        <button mat-button [mat-menu-trigger-for]="userMenu">
-          <!--<i class="fa fa-address-book"></i>-->
-          {{ currentUser.email}}
+        <button mat-button [mat-menu-trigger-for]="Announcement">
+          Announcement
           <i class="material-icons">&#xE5C5;</i>
         </button>
         <button *ngIf="currentUser.role ==='editor'" mat-button [mat-menu-trigger-for]="addMenu">
@@ -33,52 +35,79 @@
           <i class="material-icons">&#xE5C5;</i>
 
         </button>
+        <!--<button mat-button [mat-menu-trigger-for]="userMenu">-->
+          <button mat-button [routerLink]="['myprofile']" routerLinkActive="active">
+
+          <i class="fa fa-star"></i>
+          {{ currentUser.email}}
+          <!--<i class="material-icons">&#xE5C5;</i>-->
+        </button>
+
       </div>
     </div>
+    <!--  Menu Buttons  End-->
+    <!--  Login Buttons  Start-->
     <div class="col col-sm-1">
-      <button *ngIf="!LoggedIn" class="btn-login" mat-raised-button color="accent" [routerLink]="['login']" routerLinkActive="active">login</button>
-      <button *ngIf="LoggedIn" class="btn-login" mat-raised-button color="accent" [routerLink]="['logout']" routerLinkActive="active">logout</button>
+      <button *ngIf="!LoggedIn" class="btn-login" mat-raised-button color="accent" [routerLink]="['login']"
+              routerLinkActive="active">login
+      </button>
+      <button *ngIf="LoggedIn" class="btn-login" mat-raised-button color="accent" [routerLink]="['logout']"
+              routerLinkActive="active">logout
+      </button>
     </div>
+    <!--  Login Buttons  Start-->
   </mat-toolbar>
 
-  <!--About Menu-->
-  <!--<mat-menu #aboutMenu="matMenu" mat-offset="0 6" >-->
-    <!--<button mat-menu-item [routerLink]="['/wheretofindus']" routerLinkActive="active">Where to find us</button>-->
-    <!--<button mat-menu-item [routerLink]="['/aboutus']" routerLinkActive="active">About us</button>-->
-    <!--<button mat-menu-item [routerLink]="['/contactus']" routerLinkActive="active">Contact us</button>-->
-  <!--</mat-menu>-->
 
-  <!--login Menu-->
-  <mat-menu #login="matMenu" mat-offset="0 6" >
-    <button *ngIf="!LoggedIn" mat-menu-item [routerLink]="['register']" routerLinkActive="active">register</button>
-    <button *ngIf="!LoggedIn" mat-menu-item [routerLink]="['login']" routerLinkActive="active">login</button>
-    <button *ngIf="LoggedIn" mat-menu-item [routerLink]="['logout']" routerLinkActive="active">logout</button>
+
+  <!--Review Menu-->
+  <mat-menu #reviews="matMenu" mat-offset="0 6">
+    <button mat-menu-item [routerLink]="['viewreview']" routerLinkActive="active">View all reviews</button>
+    <!--<button *ngIf="currentUser.role === 'editor' || currentUser.role === 'writer'" mat-menu-item [routerLink]="['/myreviews']" routerLinkActive="active">My Reviews</button>-->
+    <button *ngIf="currentUser.role === 'editor' || currentUser.role === 'writer'" mat-menu-item [routerLink]="['/createreview']" routerLinkActive="active">Add New Review</button>
   </mat-menu>
 
-  <!--Create Menu-->
-  <mat-menu #createMenu="matMenu" mat-offset="0 6" >
-    <button mat-menu-item [routerLink]="['viewreview']" routerLinkActive="active">View reviews</button>
-    <button *ngIf="currentUser.role === 'editor' || currentUser.role === 'writer'" mat-menu-item [routerLink]="['/myreviews']" routerLinkActive="active">My Reviews</button>
-    <button mat-menu-item [routerLink]="['/createreview']" routerLinkActive="active">Add New Review</button>
-    <!--<button mat-menu-item [routerLink]="['/editreview']" routerLinkActive="active">Edit Review</button>-->
+  <!--Announcement Menu-->
+  <mat-menu #Announcement="matMenu" mat-offset="0 6">
+    <button mat-menu-item [routerLink]="['viewAnnouncement']" routerLinkActive="active">View all announcement</button>
+    <!--<button *ngIf="currentUser.role === 'editor' || currentUser.role === 'writer'" mat-menu-item [routerLink]="['/viewAnnouncement']" routerLinkActive="active">My announcement</button>-->
+    <button *ngIf="currentUser.role === 'editor' || currentUser.role === 'writer'" mat-menu-item [routerLink]="['/createAnnouncement']" routerLinkActive="active">Add New Announcement</button>
   </mat-menu>
 
   <!--User Menu-->
-  <mat-menu #userMenu="matMenu" mat-offset="0 6" >
-    <button mat-menu-item [routerLink]="['/myprofile']" routerLinkActive="active">Edit Profile</button>
+  <mat-menu #userMenu="matMenu" mat-offset="0 6">
+    <button mat-menu-item [routerLink]="['/myprofile']" routerLinkActive="active">My Profile</button>
+    <button mat-menu-item [routerLink]="['/editprofile']" routerLinkActive="active">Edit Profile</button>
 
-    <button mat-menu-item [routerLink]="['/logout']" routerLinkActive="active">Log Out</button>
+    <!--<button mat-menu-item [routerLink]="['/logout']" routerLinkActive="active">Log Out</button>-->
   </mat-menu>
 
   <!--Admin Menu-->
-  <mat-menu #addMenu="matMenu" mat-offset="0 6" >
+  <mat-menu #addMenu="matMenu" mat-offset="0 6">
     <button *ngIf="currentUser.role === 'editor'" mat-menu-item [routerLink]="['/admindashboard']"
-            routerLinkActive="active">Admin Dashboard</button>
-    <button *ngIf="currentUser.role === 'editor'" mat-menu-item [routerLink]="['/createadmin']"
-            routerLinkActive="active">Create Admin</button>
+            routerLinkActive="active">Admin Dashboard
+    </button>
+    <!--<button *ngIf="currentUser.role === 'editor'" mat-menu-item [routerLink]="['/createadmin']"-->
+            <!--routerLinkActive="active">Create Admin-->
+    <!--</button>-->
     <button *ngIf="currentUser.role === 'editor'" mat-menu-item [routerLink]="['/usermanager']"
-            routerLinkActive="active">User Management</button>
+            routerLinkActive="active">User Management
+    </button>
   </mat-menu>
 </header>
+
+<!--About Menu-->
+<!--<mat-menu #aboutMenu="matMenu" mat-offset="0 6" >-->
+<!--<button mat-menu-item [routerLink]="['/wheretofindus']" routerLinkActive="active">Where to find us</button>-->
+<!--<button mat-menu-item [routerLink]="['/aboutus']" routerLinkActive="active">About us</button>-->
+<!--<button mat-menu-item [routerLink]="['/contactus']" routerLinkActive="active">Contact us</button>-->
+<!--</mat-menu>-->
+
+<!--login Menu-->
+<!--<mat-menu #login="matMenu"class="popMnu">-->
+<!--<button *ngIf="!LoggedIn" mat-menu-item [routerLink]="['register']" routerLinkActive="active">register</button>-->
+<!--<button *ngIf="!LoggedIn" mat-menu-item [routerLink]="['login']" routerLinkActive="active">login</button>-->
+<!--<button *ngIf="LoggedIn" mat-menu-item [routerLink]="['logout']" routerLinkActive="active">logout</button>-->
+<!--</mat-menu>-->
 
 <app-alert></app-alert>

@@ -34,6 +34,19 @@ import { trigger, transition, group, query, style, animate } from '@angular/anim
           query(':enter', animate('0.3s ease-in-out', style({ transform: 'translateX(0)' }))),
         ]),
       ]),
+      transition('4 => 4, 3 => 3, 2 =>2, 1 => 1', [
+        style({ height: '!' }),
+        query(':enter', style({ transform: 'translateY(-100%)' })),
+        query(':enter, :leave', style({ position: 'absolute', top: 30 , left: 0, right: 0 })),
+        // animate the leave page away
+        group([
+          query(':leave', [
+            animate('0.6s ease-in-out', style({ transform: 'translateY(200%)' })),
+          ]),
+          // and now reveal the enter
+          query(':enter', animate('0.6s ease-in-out', style({ transform: 'translateY(0)' }))),
+        ]),
+      ])
     ])
   ]
 })
