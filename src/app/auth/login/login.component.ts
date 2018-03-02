@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthLoginService} from '../../services/auth-login.service';
-import { AlertService} from '../../services/auth-register.service';
+import { AlertService} from '../../services/alert.service';
 import {  validationMessage} from "../../models/validationMessage";
 
 @Component({
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
             this.alertService.success('Login successful', true);
             this.router.navigate([this.returnUrl]);
           } else {
-            this.alertService.error(data[0], data[1]);
+            this.alertService.error(returnedMessage.msg);
           }
         },
 

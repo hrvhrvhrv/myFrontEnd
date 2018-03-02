@@ -22,6 +22,7 @@ import { AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.compon
 import { ViewReviewsComponent} from "./view-reviews/view-reviews.component";
 import { ViewAnnouncementComponent} from "./view-announcement/view-announcement.component";
 import { CreateAnnouncementComponent} from "./create-announcement/create-announcement.component";
+import { ViewSingleReviewComponent} from "./view-single-review/view-single-review.component";
 
 const appRoutes: Routes = [
   { path: '',
@@ -75,7 +76,7 @@ const appRoutes: Routes = [
 
   },
   {
-    path: 'editreview',
+    path: 'editReview/:id',
     component: EditReviewComponent,
     canActivate: [AuthGuard],
     data: {
@@ -97,7 +98,7 @@ const appRoutes: Routes = [
     path: 'createAnnouncement',
     component: CreateAnnouncementComponent,
     data: {
-      title:'Views Announcement',
+      title:'Create Announcement',
       depth: 3
     }
 
@@ -125,7 +126,7 @@ const appRoutes: Routes = [
   {
     path: 'createadmin',
     component: CreateAdminComponent,
-    canActivate: [AdminGuard],
+    canActivate: [AuthGuard],
     data: {
       title:'Create Admin',
       depth: 1
@@ -169,6 +170,17 @@ const appRoutes: Routes = [
     data: {
       title:'Contact Us',
       depth: 2
+    }
+
+  },
+  {
+    // path: 'viewReviewOne',
+    path: 'viewReviewOne/:id',
+    component: ViewSingleReviewComponent,
+    // canActivate: [AuthGuard],
+    data: {
+      title:'Contact Us',
+      depth: 4
     }
 
   }

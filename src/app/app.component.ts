@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, group, query, style, animate } from '@angular/animations';
+import { Router, NavigationEnd } from '@angular/router';
+
 
 
 @Component({
@@ -50,15 +52,15 @@ import { trigger, transition, group, query, style, animate } from '@angular/anim
     ])
   ]
 })
+
 export class AppComponent {
+
+
   title = 'app';
   getDepth(outlet) {
     return outlet.activatedRouteData['depth'];
   }
 
-  onActivate(event) {
-    window.scroll(0,0);
-    console.log(event)
-  }
+
 
 }

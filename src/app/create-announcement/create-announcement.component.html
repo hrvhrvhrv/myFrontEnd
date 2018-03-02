@@ -1,3 +1,16 @@
-<p>
-  create-announcement works!
-</p>
+<mat-card>
+  <mat-card-header> <h1>Create Announcement </h1></mat-card-header>
+  <!-- $event, Title.value, Director.value, Studio.value, Year.value, Img.value, Review.value-->
+  <form  (ngSubmit)="createAnnouncement()" #Form="ngForm" >
+    <mat-form-field>
+      <input name="title" matInput placeholder="Title"  [(ngModel)]="newAnnouncement.title">
+    </mat-form-field>
+
+
+    <app-ngx-editor name="review" [placeholder]="'Enter text here...'"
+                    [spellcheck]="true"  [(ngModel)]="newAnnouncement.message"></app-ngx-editor>
+
+
+    <button  class="btn btn-md btn-primary btn-block" type="submit">Submit</button>
+  </form>
+</mat-card>

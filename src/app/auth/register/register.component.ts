@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthRegisterService, AlertService} from '../../services/auth-register.service';
+import {AuthRegisterService} from '../../services/auth-register.service';
+import { AlertService} from "../../services/alert.service";
 import {Router} from '@angular/router';
 
 import {validationMessage} from '../../models/validationMessage';

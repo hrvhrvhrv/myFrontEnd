@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from "@angular/common/http";
-import { User} from "../models/user";
 import { appConfig} from "../app.config";
 import { Review} from "../models/review";
 
@@ -14,7 +13,7 @@ export class ReviewService {
   }
 
   create(review: Review){
-    console.log(review)
+    console.log(review);
 
     return this.http.post(appConfig.apiUrl + '/api/film', review)
   }
@@ -26,6 +25,19 @@ export class ReviewService {
       console.log(error.msg);
     }
   }
+
+  getReviewbyID(id: string){
+    try{
+      return this.http.get(`${appConfig.apiUrl}/api/film`+ id).map(res => res as Review);
+    } catch (error){
+      console.log(error.msg);
+    }
+  }
+
+  editReview(review: Review){
+    return this.http.put(`${appConfig.apiUrl}/api/film`+ review._id, review)
+  }
+
   delete(id: string){
     return this.http.delete(`${appConfig.apiUrl}/api/film`+ id );
   }

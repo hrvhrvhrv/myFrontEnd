@@ -71,7 +71,7 @@
   <mat-menu #Announcement="matMenu" mat-offset="0 6">
     <button mat-menu-item [routerLink]="['viewAnnouncement']" routerLinkActive="active">View all announcement</button>
     <!--<button *ngIf="currentUser.role === 'editor' || currentUser.role === 'writer'" mat-menu-item [routerLink]="['/viewAnnouncement']" routerLinkActive="active">My announcement</button>-->
-    <button *ngIf="currentUser.role === 'editor' || currentUser.role === 'writer'" mat-menu-item [routerLink]="['/createAnnouncement']" routerLinkActive="active">Add New Announcement</button>
+    <button  mat-menu-item [routerLink]="['/createAnnouncement']" routerLinkActive="active">Add New Announcement</button>
   </mat-menu>
 
   <!--User Menu-->
@@ -109,5 +109,9 @@
 <!--<button *ngIf="!LoggedIn" mat-menu-item [routerLink]="['login']" routerLinkActive="active">login</button>-->
 <!--<button *ngIf="LoggedIn" mat-menu-item [routerLink]="['logout']" routerLinkActive="active">logout</button>-->
 <!--</mat-menu>-->
+
+
+
+
 
 <app-alert></app-alert>

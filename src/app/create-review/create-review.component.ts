@@ -25,7 +25,7 @@ export class CreateReviewComponent implements OnInit {
   constructor(private reviewService: ReviewService, private authService: AuthLoginService, private router: Router) { }
 
   ngOnInit() {
-    // this.authService.currentUserObserver.subscribe(currentUser => this.currentUser = currentUser);
+    this.authService.currentUserObserver.subscribe(currentUser => this.currentUser = currentUser);
 
   }
 

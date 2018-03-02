@@ -30,7 +30,7 @@ currentUser: User;
 
   deleteFilm(id) {
     this.reviewService.delete(id).subscribe(res => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/viewreviews']);
     }, (err) => {
       console.log(err);
       }
