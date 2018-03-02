@@ -54,7 +54,9 @@ export class ViewAnnouncementComponent implements OnInit {
       .subscribe(res => {
         let id = res['_id'];
         this.router.navigate(['/viewAnnouncement']);
-      }); (err) => {
+      });
+
+    (err) => {
       console.log(err);
     }
   }

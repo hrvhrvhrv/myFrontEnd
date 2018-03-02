@@ -13,13 +13,10 @@ import {AuthLoginService} from "../services/auth-login.service";
 
 export class HomeComponent implements OnInit {
   currentUser: User;
-  // users: User[] = [];
+
   LoggedIn : boolean;
 
   constructor(private userService: AuthRegisterService, private authService: AuthLoginService) {
-    // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    // this.authService.currentLoggedIn.subscribe(LoggedIn =>this.LoggedIn = LoggedIn);
-    // this.authService.currentUserObserver.subscribe(currentUser => this.currentUser = currentUser);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
     this.authService.currentLoggedIn.subscribe(LoggedIn =>this.LoggedIn = LoggedIn);
