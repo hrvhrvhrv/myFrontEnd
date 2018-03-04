@@ -4,6 +4,7 @@ import { appConfig} from "../app.config";
 import { Comment} from "../models/comment";
 
 import { Observable} from "rxjs/Observable";
+import {Review} from "../models/review";
 
 
 @Injectable()
@@ -16,8 +17,18 @@ export class CommentService {
     return this.http.post( appConfig.apiUrl + '/api/comment', comment)
   }
 
-  delete(id: string){
+  deleteComment(id: string){
     return this.http.delete(`${appConfig.apiUrl}/api/comment`+ id );
   }
 
+//  return this.http.delete(`${appConfig.apiUrl}/api/announcements`+ id );
+
+
+  getAllCommentsOnPost(id: string)  : Observable<Array<Comment>>{
+    try{
+      return this.http.get(`${appConfig.apiUrl}/api/comment`+ id).map(res => res as Array<Comment> || []);
+    } catch (error){
+      console.log(error.msg);
+    }
+  }
 }

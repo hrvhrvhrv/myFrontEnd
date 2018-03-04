@@ -1,33 +1,25 @@
 
-<mat-card-title>
-  <h1 class="logo">This is our review of</h1>
-</mat-card-title>
 
 <mat-card class="review_card ">
 
   <mat-card-header>
     <div mat-card-avatar class="example-header-image">
-      <i class="fa fa-film fa-2x"></i>
+      <i class="fa fa-bullhorn fa-2x"></i>
     </div>
     <mat-card-title>
-      <h1 class="logo">{{singleReview.title}}</h1>
+      <h1 class="logo">{{singleAnnouncement.title}}</h1>
     </mat-card-title>
-    <mat-card-subtitle>{{singleReview.year}}</mat-card-subtitle>
+    <mat-card-subtitle><p>Author: {{singleAnnouncement.author}}</p>
+    </mat-card-subtitle>
   </mat-card-header>
   <div class="img_wrapper">
   </div>
   <mat-card-content>
-    <p>{{singleReview.director}}</p>
-    <p>{{singleReview.reviewer}}</p>
-    <p>{{singleReview.review}}</p>
-    <p>{{singleReview.studio}}</p>
-    <p>{{singleReview.year}}</p>
-    <p>{{singleReview._id}}</p>
+    <p>{{singleAnnouncement.message}}</p>
 
 
   </mat-card-content>
   <mat-card-actions>
-    <!--<button mat-raised-button color="accent">View review</button>-->
   </mat-card-actions>
 </mat-card>
 
@@ -78,7 +70,7 @@
         <mat-expansion-panel-header>
           Add Comment
         </mat-expansion-panel-header>
-        <form (ngSubmit)="createComment(singleReview._id)" #commentForm="ngForm">
+        <form (ngSubmit)="createComment(singleAnnouncement._id)" #commentForm="ngForm">
           <mat-form-field>
                <textarea matInput name="message" placeholder="Leave a comment"
                          [(ngModel)]="newComment.message"></textarea>
@@ -121,8 +113,8 @@
     <button mat-raised-button color="accent" [mat-menu-trigger-for]="delete">Delete</button>
     <mat-menu #delete="matMenu">
       <p>Are you sure you want to delete this article?</p>
-      <button type="button" (click)="deleteFilm(singleReview._id)">DELETE</button>
-      <button type="button" (click)="getReviewbyID(singleReview._id)">View Single</button>
+      <button type="button" (click)="deleteFilm(singleAnnouncement._id)">DELETE</button>
+      <button type="button" (click)="getReviewbyID(singleAnnouncement._id)">View Single</button>
       <button mat-menu-item [routerLink]="['/editprofile']" routerLinkActive="active">Yes Delete</button>
 
       <!--<button mat-menu-item [routerLink]="['/logout']" routerLinkActive="active">Log Out</button>-->
@@ -131,7 +123,6 @@
 </mat-accordion>
 
 
-<button mat-raised-button color="primary" [routerLink]="['/viewreview']" routerLinkActive="active">Back to
-  Review List
+<button mat-raised-button color="accent" [routerLink]="['/viewAnnouncement']" routerLinkActive="active">Back to
+  Announcement List
 </button>
-

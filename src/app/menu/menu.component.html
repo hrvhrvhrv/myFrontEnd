@@ -17,7 +17,7 @@
       <button *ngIf="!LoggedIn" mat-button [routerLink]="['viewreview']" routerLinkActive="active">Reviews</button>
       <button *ngIf="!LoggedIn" mat-button [routerLink]="['viewAnnouncement']" routerLinkActive="active">Anouncements
       </button>
-      <!--<button mat-button [mat-menu-trigger-for]="aboutMenu">About Us<i class="material-icons">&#xE5C5;</i></button>-->
+      <button mat-button [mat-menu-trigger-for]="aboutMenu">About Us<i class="material-icons">&#xE5C5;</i></button>
       <!--<button mat-button [mat-menu-trigger-for]="login">login<i class="material-icons">&#xE5C5;</i></button>-->
 
       <div *ngIf="LoggedIn">
@@ -97,11 +97,11 @@
 </header>
 
 <!--About Menu-->
-<!--<mat-menu #aboutMenu="matMenu" mat-offset="0 6" >-->
-<!--<button mat-menu-item [routerLink]="['/wheretofindus']" routerLinkActive="active">Where to find us</button>-->
-<!--<button mat-menu-item [routerLink]="['/aboutus']" routerLinkActive="active">About us</button>-->
-<!--<button mat-menu-item [routerLink]="['/contactus']" routerLinkActive="active">Contact us</button>-->
-<!--</mat-menu>-->
+<mat-menu #aboutMenu="matMenu" mat-offset="0 6" >
+<button mat-menu-item [routerLink]="['/wheretofindus']" routerLinkActive="active">Where to find us</button>
+<button mat-menu-item [routerLink]="['/aboutus']" routerLinkActive="active">About us</button>
+<button mat-menu-item [routerLink]="['/contactus']" routerLinkActive="active">Contact us</button>
+</mat-menu>
 
 <!--login Menu-->
 <!--<mat-menu #login="matMenu"class="popMnu">-->

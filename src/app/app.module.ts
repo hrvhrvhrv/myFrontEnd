@@ -11,6 +11,8 @@ import {AuthLoginService} from './services/auth-login.service';
 import {ReviewService} from "./services/review.service";
 import {AuthRegisterService} from './services/auth-register.service';
 import {AnnouncementService} from "./services/announcement.service";
+import {UserService} from "./services/user.service";
+
 import {AlertService} from "./services/alert.service";
 import {AppRouting} from './app.routing';
 import {CommentService} from "./services/comment.service";
@@ -22,7 +24,7 @@ import {AlertComponent} from './directives/alert/alert.component';
 import {ErrorInterceptorProvider} from './services/helper/error.interceptor';
 import {JwtInterceptorProvider} from './services/helper/jwt.interceptor';
 import {MenuComponent} from './menu/menu.component';
-
+import {AgmCoreModule} from "@agm/core";
 
 //  import for material
 import {
@@ -52,6 +54,7 @@ import {ViewAnnouncementComponent} from './view-announcement/view-announcement.c
 import {CreateAnnouncementComponent} from './create-announcement/create-announcement.component';
 import {ViewSingleReviewComponent} from './view-single-review/view-single-review.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
+import { ViewSingleAnnouncementComponent } from './view-single-announcement/view-single-announcement.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +78,8 @@ import { CreateCommentComponent } from './create-comment/create-comment.componen
     ViewAnnouncementComponent,
     CreateAnnouncementComponent,
     ViewSingleReviewComponent,
-    CreateCommentComponent
+    CreateCommentComponent,
+    ViewSingleAnnouncementComponent
   ],
   imports: [
     BrowserModule,
@@ -108,6 +112,9 @@ import { CreateCommentComponent } from './create-comment/create-comment.componen
     MatNativeDateModule,
     ReactiveFormsModule,
     MatStepperModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDnhJkMdRQN-UzKobKTDvQ6F88gHA1FzVM'
+    })
 
 
   ],//our service providers
@@ -121,7 +128,8 @@ import { CreateCommentComponent } from './create-comment/create-comment.componen
     JwtInterceptorProvider,
     ErrorInterceptorProvider,
     AnnouncementService,
-    CommentService
+    CommentService,
+    UserService
 
   ],
   bootstrap: [AppComponent]

@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WhereWeAreComponent implements OnInit {
 
+  lat: number = 55.863088;
+  lng: number = -4.244154;
+  zoom: number = 15;
+
   constructor() { }
 
   ngOnInit() {

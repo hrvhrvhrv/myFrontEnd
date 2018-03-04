@@ -8,7 +8,7 @@ import { Observable} from "rxjs/Observable";
 @Injectable()
 export class ReviewService {
   headers: HttpHeaders;
-  constructor(private http: HttpClient) {
+  constructor(private http : HttpClient) {
 
   }
 

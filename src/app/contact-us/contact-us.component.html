@@ -1,49 +1,85 @@
-<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
+<mat-card>
+  <mat-card-header>
+    <h1>Contact Us</h1>
+
+  </mat-card-header>
+  <mat-card-subtitle>
+    <p>Fill in the form below to send us a message or contact us via email or by phone</p>
+
+  </mat-card-subtitle>
+  <div class="row">
+    <div class="col-lg-4 col-sm-6 text-center mb-4">
+      <i class="fa fa-phone fa-5x"></i>
+
+      <h3>Phone
+      </h3>
+      <p>01224 58884152</p>
+    </div>
+    <div class="col-lg-4 col-sm-6 text-center mb-4">
+      <i class="fa fa-phone fa-5x"></i>
+      <h3>Email
+      </h3>
+      <p>info@thetheatrecompany.com</p>
+    </div>
+    <div class="col-lg-4 col-sm-6 text-center mb-4">
+      <i class="fa fa-home fa-5x"></i>
+
+      <h3>Visit
+
+      </h3>
+      <p>190 Cathedral St,</p>
+      <p>Glasgow G4 0RF</p>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card-header>
+    <h1>Contact Form</h1>
+
+  </mat-card-header>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="email" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperNext color="accent">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Enter your message</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="message" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      Thanks for your message. We will get back to you as soon as possible
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+    </mat-step>
+  </mat-horizontal-stepper>
 
 
-<div class="row">
-  <div class="col-sm-8">
-    <div class="container">
+  <div class="row">
+    <div class="col-sm-8">
 
-
-      <app-where-we-are></app-where-we-are>
     </div>
   </div>
-  <div class="col-sm-4">
-    <mat-card>
-      <p>This is where the address goes</p>
-    </mat-card>
-  </div>
-</div>
+</mat-card>

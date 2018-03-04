@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { appConfig} from "../app.config";
 import { Announcement} from "../models/announcement";
 import { Observable} from "rxjs/Observable";
+import {Review} from "../models/review";
 
 
 @Injectable()
@@ -28,7 +29,7 @@ export class AnnouncementService {
 
   getAnnouncementByID(id: string){
     try{
-      return this.http.get(`${appConfig.apiUrl}/api/announcements`+ id);
+      return this.http.get(`${appConfig.apiUrl}/api/announcements`+ id).map(res => res as Announcement);
     } catch (error){
       console.log(error.msg);
     }

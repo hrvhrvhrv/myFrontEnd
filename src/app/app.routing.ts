@@ -23,6 +23,7 @@ import { ViewReviewsComponent} from "./view-reviews/view-reviews.component";
 import { ViewAnnouncementComponent} from "./view-announcement/view-announcement.component";
 import { CreateAnnouncementComponent} from "./create-announcement/create-announcement.component";
 import { ViewSingleReviewComponent} from "./view-single-review/view-single-review.component";
+import {ViewSingleAnnouncementComponent} from "./view-single-announcement/view-single-announcement.component";
 
 const appRoutes: Routes = [
   { path: '',
@@ -97,6 +98,7 @@ const appRoutes: Routes = [
   {
     path: 'createAnnouncement',
     component: CreateAnnouncementComponent,
+    canActivate: [AuthGuard],
     data: {
       title:'Create Announcement',
       depth: 3
@@ -129,7 +131,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
     data: {
       title:'Create Admin',
-      depth: 1
+      depth: 3
     }
 
   },
@@ -156,17 +158,24 @@ const appRoutes: Routes = [
   {
     path: 'aboutus',
     component: AboutUsComponent,
-    // canActivate: [AuthGuard],
     data: {
       title:'About Us',
-      depth: 1
+      depth: 2
+    }
+
+  },
+  {
+    path: 'wheretofindus',
+    component: WhereWeAreComponent,
+    data: {
+      title:'About Us',
+      depth: 2
     }
 
   },
   {
     path: 'contactus',
     component: ContactUsComponent,
-    // canActivate: [AuthGuard],
     data: {
       title:'Contact Us',
       depth: 2
@@ -174,10 +183,17 @@ const appRoutes: Routes = [
 
   },
   {
-    // path: 'viewReviewOne',
     path: 'viewReviewOne/:id',
     component: ViewSingleReviewComponent,
-    // canActivate: [AuthGuard],
+    data: {
+      title:'Contact Us',
+      depth: 4
+    }
+
+  },
+  {
+    path: 'viewAnnouncementOne/:id',
+    component: ViewSingleAnnouncementComponent,
     data: {
       title:'Contact Us',
       depth: 4

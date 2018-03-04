@@ -66,7 +66,7 @@ h1, h2, h3,h4,h5, p{
 }§
 
 .img_wrapper{
-
+  background: #59a0d7;
   width: 400px;
   height: 600px;
   overflow: hidden;
@@ -77,6 +77,12 @@ h1, h2, h3,h4,h5, p{
 
 .review_card{
   margin-top: 30px;
+}
+.announceCard{
+  height: 100%;
+  width: 100%;
+  border: 1px solid RGBA(211, 211, 211, 0.60);
+  box-shadow: 2px 2px 2px RGBA(211, 211, 211, 0.30);
 }
 
 footer{
