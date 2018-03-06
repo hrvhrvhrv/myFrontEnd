@@ -24,6 +24,7 @@ import { ViewAnnouncementComponent} from "./view-announcement/view-announcement.
 import { CreateAnnouncementComponent} from "./create-announcement/create-announcement.component";
 import { ViewSingleReviewComponent} from "./view-single-review/view-single-review.component";
 import {ViewSingleAnnouncementComponent} from "./view-single-announcement/view-single-announcement.component";
+import { EditAnnouncementComponent} from "./edit-announcement/edit-announcement.component";
 
 const appRoutes: Routes = [
   { path: '',
@@ -85,6 +86,15 @@ const appRoutes: Routes = [
       depth: 1
     }
 
+  },{
+    path: 'editAnnouncement/:id',
+    component: EditAnnouncementComponent,
+    canActivate: [AuthGuard],
+    data: {
+      title:'Edit Review',
+      depth: 1
+    }
+
   },
   {
     path: 'viewAnnouncement',
@@ -126,7 +136,7 @@ const appRoutes: Routes = [
 
   },
   {
-    path: 'createadmin',
+    path: 'createadmin/:id',
     component: CreateAdminComponent,
     canActivate: [AuthGuard],
     data: {

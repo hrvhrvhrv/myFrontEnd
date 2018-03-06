@@ -31,7 +31,7 @@ import {
   MatMenuModule, MatCommonModule, MatButtonModule, MatCardModule, MatToolbarModule,
   MatFormFieldModule, MatDatepickerModule, MatInputModule, MatSidenavModule, MatAutocompleteModule, MatCheckboxModule,
   MatGridListModule, MatDialogModule, MatLineModule, MatChipsModule, MatExpansionModule, MatProgressBarModule,
-  MatRadioModule, MatNativeDateModule, MatListModule
+  MatRadioModule, MatNativeDateModule, MatListModule, MatSelectModule
 } from "@angular/material";
 import {MatIconModule} from '@angular/material/icon';
 
@@ -55,6 +55,7 @@ import {CreateAnnouncementComponent} from './create-announcement/create-announce
 import {ViewSingleReviewComponent} from './view-single-review/view-single-review.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
 import { ViewSingleAnnouncementComponent } from './view-single-announcement/view-single-announcement.component';
+import { EditAnnouncementComponent } from './edit-announcement/edit-announcement.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { ViewSingleAnnouncementComponent } from './view-single-announcement/view
     CreateAnnouncementComponent,
     ViewSingleReviewComponent,
     CreateCommentComponent,
-    ViewSingleAnnouncementComponent
+    ViewSingleAnnouncementComponent,
+    EditAnnouncementComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +116,8 @@ import { ViewSingleAnnouncementComponent } from './view-single-announcement/view
     MatStepperModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDnhJkMdRQN-UzKobKTDvQ6F88gHA1FzVM'
-    })
+    }),
+    MatSelectModule
 
 
   ],//our service providers

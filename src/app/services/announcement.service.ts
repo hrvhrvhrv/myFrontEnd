@@ -40,4 +40,8 @@ export class AnnouncementService {
   }
 
 
+  editAnnouncement(announcement: Announcement){
+    return this.http.put(`${appConfig.apiUrl}/api/film`+ announcement._id, announcement)
+  }
+
 }

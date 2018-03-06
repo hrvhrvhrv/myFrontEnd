@@ -5,37 +5,34 @@
     <h1 class="">Latest Announcements</h1>
   </mat-card-title>
   <mat-card-content>
-  <p>Find out the latest news from The Local Theatre company</p>
+    <p>Find out the latest news from The Local Theatre company</p>
 
-  <mat-grid-list cols="2" rowHeight="175px" gutterSize="20px">
+    <mat-grid-list cols="2" rowHeight="175px" gutterSize="20px">
 
-    <mat-grid-tile *ngFor=' let announcements of allAnnouncements; let i = index' class="announceCard" >
-      <mat-card class="announceCard" >
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image">
-            <i class="fa fa-bullhorn fa-2x"></i>
-          </div>
-          <mat-card-title>
-            <h1 class="logo">{{announcements.title}}</h1>
-          </mat-card-title>
-          <mat-card-subtitle>TIMESTAMP</mat-card-subtitle>
-        </mat-card-header>
-        <!--<mat-card-content>-->
-        <!--<p>{{announcements.message}}</p>-->
-        <!--</mat-card-content>-->
-        <button mat-raised-button color="accent" [routerLink]="['/viewAnnouncementOne', announcements._id]"
-                routerLinkActive="active">View full Review
-        </button>
-        <p class="right">{{i}}</p>
-          <mat-chip selected="true" [color]="primary">
+      <mat-grid-tile *ngFor=' let announcements of allAnnouncements; let i = index' class="announceCard">
+        <mat-card class="announceCard">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+              <i class="fa fa-bullhorn fa-2x"></i>
+            </div>
+            <mat-card-title>
+              <h1 class="logo">{{announcements.title}}</h1>
+            </mat-card-title>
+            <mat-card-subtitle>TIMESTAMP</mat-card-subtitle>
+          </mat-card-header>
 
-          Hello
-          </mat-chip>
+          <button mat-raised-button color="accent" [routerLink]="['/viewAnnouncementOne', announcements._id]"
+                  routerLinkActive="active">View full Review
+          </button>
+          <a *ngIf="currentUser.role === 'reader' || currentUser.role === 'editor'" [routerLink]="['/editAnnouncement', announcements._id]">Edit</a>
 
-      </mat-card>
 
-    </mat-grid-tile>
-  </mat-grid-list>
+
+          <button mat-raised-button color="warn" *ngIf="currentUser.role === 'editor'" class="btn btn-outline-primary " [routerLink]="['/viewreview']" role="button">delete</button>
+          <p class="right">{{i}}</p>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
   </mat-card-content>
 </mat-card>
 

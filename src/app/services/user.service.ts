@@ -27,11 +27,9 @@ export class UserService {
   }
 
   editUser(user: User){
-    try {
-      return this.http.put(`${appConfig.apiUrl}/api/user` + user._id, user)
-    } catch (error){
-      console.log(error.msg);
-    }
+
+      return this.http.put(`${appConfig.apiUrl}/api/user`+ user._id, user)
+
   }
 
   deleteUser(id: string){

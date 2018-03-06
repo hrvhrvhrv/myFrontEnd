@@ -18,6 +18,8 @@
         <button mat-raised-button color="accent" [routerLink]="['/viewReviewOne', review._id]"
                 routerLinkActive="active">View full Review
         </button>
+        <button *ngIf="currentUser.role=='editor' ||(currentUser.role=='creator' && currentUser._id == review.reviewer)" [routerLink]="['/editReview', review._id]" class="btn btn-success">EDIT</button>
+        <button *ngIf="currentUser.role=='editor' ||(currentUser.role=='creator' && currentUser._id == review.reviewer)" class="btn btn-danger" type="button" (click)="deleteFilm(review._id)">DELETE</button>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
